@@ -1,0 +1,65 @@
+=== BROWSER STATE ===
+URL: http://localhost:8092/?v=2
+Title: Global Pilgrim Bank — Digital Banking Platform (Demo)
+Result: Navigated to http://localhost:8092/?v=2 (title: Global Pilgrim Bank — Digital Banking Platform (Demo), status: 200)
+
+Interactive elements (5):
+  [0] button "Customer"
+  [1] button "Administrator"
+  [2] input type="text"
+  [3] input type="password"
+  [4] button type="submit" "Sign in securely"
+
+Accessibility tree:
+Page text: GPB Global Pilgrim Bank DIGITAL BANKING PLATFORM One account. Every rail. All currencies. Core banking, instant transfers, cards, USSD, multi-currency FX, digital wallets and crypto settlement — unified in a single ledger with full double-entry accounting and an immutable audit trail. 12 CURRENCIES ISO 8583 ATM / POS Double-Entry LEDGER 24/7 MONITORING ⚠️ Demonstration environment — simulated data, no real funds move. © 2024 Global Pilgrim Bank · Demo build · Not a licensed deposit-taking institution Sign in Access your dashboard, wallets and transaction terminal. Customer Administrator ACCOUNT NUMBER PASSWORD Sign in securely Demo credentials — Customer: 3855158987 / GPB2024 Administrator: admin / admin123
+
+Screenshot: /workspace/.screenshots/step_009.png
+Use see-image to view: /workspace/.screenshots/step_009.png
+=== END ===
+=== BROWSER STATE ===
+URL: http://localhost:8092/?v=2
+Title: Global Pilgrim Bank — Digital Banking Platform (Demo)
+Result: JS result: (undefined)
+
+Interactive elements (5):
+  [0] button "Customer"
+  [1] button "Administrator"
+  [2] input type="text"
+  [3] input type="password"
+  [4] button type="submit" "Sign in securely"
+
+Accessibility tree:
+Page text: GPB Global Pilgrim Bank DIGITAL BANKING PLATFORM One account. Every rail. All currencies. Core banking, instant transfers, cards, USSD, multi-currency FX, digital wallets and crypto settlement — unified in a single ledger with full double-entry accounting and an immutable audit trail. 12 CURRENCIES ISO 8583 ATM / POS Double-Entry LEDGER 24/7 MONITORING ⚠️ Demonstration environment — simulated data, no real funds move. © 2024 Global Pilgrim Bank · Demo build · Not a licensed deposit-taking institution Sign in Access your dashboard, wallets and transaction terminal. Customer Administrator ACCOUNT NUMBER PASSWORD Sign in securely Demo credentials — Customer: 3855158987 / GPB2024 Administrator: admin / admin123
+
+Screenshot: /workspace/.screenshots/step_010.png
+Use see-image to view: /workspace/.screenshots/step_010.png
+=== END ===
+=== BROWSER STATE ===
+URL: http://localhost:8092/?v=2
+Title: Global Pilgrim Bank — Digital Banking Platform (Demo)
+Result: Clicked: [4]
+
+Interactive elements (16):
+  [5] button "◈ Overview"
+  [6] button "⇄ Transfer"
+  [7] button "≡ Transactions"
+  [8] button "◎ Wallets & Crypto"
+  [9] button "₦ Currency Exchange"
+  [10] button "▭ Cards & ATM"
+  [11] button "# USSD & Alerts"
+  [12] button "▲ Trading Terminal"
+  [13] button "⛏ Mining Terminal"
+  [14] button "▤ Statements"
+  [15] button "⚙ Security"
+  [19] button "⏻ Sign out"
+  [21] button "⇄ Send Money"
+  [22] button "◎ Wallets"
+  [23] button "₦ Exchange"
+  [24] button "▤ Statement"
+
+Accessibility tree:
+Page text: GPB Global Pilgrim BANK BANKING ◈ Overview ⇄ Transfer ≡ Transactions ◎ Wallets & Crypto ₦ Currency Exchange CHANNELS ▭ Cards & ATM # USSD & Alerts MARKETS ▲ Trading Terminal ⛏ Mining Terminal ACCOUNT ▤ Statements ⚙ Security ⏻ Sign out Overview Your banking at a glance LIVE FEED 22:57:41 OA AVAILABLE BALANCE ₦2,500,000.00 OLAWALE ABDUL-GANIYU ADESHINA ACCOUNT NUMBER 3855158987 BANK Global Pilgrim Bank TYPE Corporate Current STATUS ACTIVE MONEY IN (30D) ₦2,050,000.00 Credits received MONEY OUT (30D) ₦282,500.00 Debits sent TRANSACTIONS 6 All-time records DAILY LIMIT LEFT ₦20,000,000.00 Resets 00:00 WAT LIVE TRANSACTION FEED streaming Credit · ₦850,000.00 ZENITH BANK / ADEBAYO HOLDINGS · NIP · TXN-Z7334Y-9109 21 Nov 2026, 19:57:38 · SUCCESS Debit · ₦45,000.00 GTBANK / EMEKA NWOSU · NIP · TXN-KYBGTH-7813 20 Nov 2026, 20:57:38 · SUCCESS Debit · ₦12,500.00 Jumia Nigeria · CARD · TXN-V7Q2NI-3382 19 Nov 2026, 20:57:38 · SUCCESS Debit · ₦220,000.00 ACCESS BANK / NGOZI EZE · NIP · TXN-8HEMWC-6364 18 Nov 2026, 20:57:38 · SUCCESS Credit · ₦1,200,000.00 UBA / PILGRIM CAPITAL LTD · NIP · TXN-0D2J8M-7484 16 Nov 2026, 22:57:38 · SUCCESS Debit · ₦5,000.00 MTN Airtime · USSD · TXN-YS66J0-1461 15 Nov 2026, 16:57:38 · SUCCESS QUICK ACTIONS ⇄ Send Money ◎ Wallets ₦ Exchange ▤ Statement RECENT ACTIVITY ZENITH BANK / ADEBAYO HOLDINGS +₦850,000.00 GTBANK / EMEKA NWOSU −₦45,000.00 Jumia Nigeria −₦12,500.00 ACCESS BANK / NGOZI EZE −₦220,000.00 Signed in Welcome back, OLAWALE
+
+Screenshot: /workspace/.screenshots/step_011.png
+Use see-image to view: /workspace/.screenshots/step_011.png
+=== END ===

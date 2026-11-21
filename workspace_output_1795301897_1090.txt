@@ -1,0 +1,32 @@
+=== BROWSER STATE ===
+URL: http://localhost:8092/?v=2
+Title: Global Pilgrim Bank — Digital Banking Platform (Demo)
+Result: JS result: done
+
+Interactive elements (19):
+  [5] button "◈ Overview"
+  [6] button "⇄ Transfer"
+  [7] button "≡ Transactions"
+  [8] button "◎ Wallets & Crypto"
+  [9] button "₦ Currency Exchange"
+  [10] button "▭ Cards & ATM"
+  [11] button "# USSD & Alerts"
+  [12] button "▲ Trading Terminal"
+  [13] button "⛏ Mining Terminal"
+  [14] button "▤ Statements"
+  [15] button "⚙ Security"
+  [16] button "★ Admin Dashboard"
+  [17] button "⚖ General Ledger"
+  [18] button "⧉ Audit Trail"
+  [19] button "⏻ Sign out"
+  [21] button "⇄ Send Money"
+  [22] button "◎ Wallets"
+  [23] button "₦ Exchange"
+  [24] button "▤ Statement"
+
+Accessibility tree:
+Page text: GPB Global Pilgrim BANK BANKING ◈ Overview ⇄ Transfer ≡ Transactions ◎ Wallets & Crypto ₦ Currency Exchange CHANNELS ▭ Cards & ATM # USSD & Alerts MARKETS ▲ Trading Terminal ⛏ Mining Terminal ACCOUNT ▤ Statements ⚙ Security BACK OFFICE ★ Admin Dashboard ⚖ General Ledger ⧉ Audit Trail ⏻ Sign out Overview Your banking at a glance LIVE FEED 22:58:17 OA AVAILABLE BALANCE ₦2,484,975.00 OLAWALE ABDUL-GANIYU ADESHINA ACCOUNT NUMBER 3855158987 BANK Global Pilgrim Bank TYPE Corporate Current STATUS ACTIVE MONEY IN (30D) ₦2,050,000.00 Credits received MONEY OUT (30D) ₦297,500.00 Debits sent TRANSACTIONS 7 All-time records DAILY LIMIT LEFT ₦19,985,000.00 Resets 00:00 WAT LIVE TRANSACTION FEED streaming Debit · ₦15,000.00 Global Pilgrim Bank / EMEKA NWOSU · NIP · TXN-MWR0DSBTWI 21 Nov 2026, 22:57:54 · SUCCESS Credit · ₦850,000.00 ZENITH BANK / ADEBAYO HOLDINGS · NIP · TXN-Z7334Y-9109 21 Nov 2026, 19:57:38 · SUCCESS Debit · ₦45,000.00 GTBANK / EMEKA NWOSU · NIP · TXN-KYBGTH-7813 20 Nov 2026, 20:57:38 · SUCCESS Debit · ₦12,500.00 Jumia Nigeria · CARD · TXN-V7Q2NI-3382 19 Nov 2026, 20:57:38 · SUCCESS Debit · ₦220,000.00 ACCESS BANK / NGOZI EZE · NIP · TXN-8HEMWC-6364 18 Nov 2026, 20:57:38 · SUCCESS Credit · ₦1,200,000.00 UBA / PILGRIM CAPITAL LTD · NIP · TXN-0D2J8M-7484 16 Nov 2026, 22:57:38 · SUCCESS Debit · ₦5,000.00 MTN Airtime · USSD · TXN-YS66J0-1461 15 Nov 2026, 16:57:38 · SUCCESS QUICK ACTIONS ⇄ Send Money ◎ Wallets ₦ Exchange ▤ Statement RECENT ACTIVITY Global Pilgrim Bank / EMEKA NWOSU −₦15,000.00 ZENITH BANK / ADEBAYO HOLDINGS +₦850,000.00 GTBANK / EMEKA NWOSU −₦45,000.00 Jumia Nigeria −₦12,500.00
+
+Screenshot: /workspace/.screenshots/step_026.png
+Use see-image to view: /workspace/.screenshots/step_026.png
+=== END ===

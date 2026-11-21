@@ -1,0 +1,17 @@
+  $('#ovRecent').innerHTML = txs.slice(0, 4).map(t => `
+    <div class="kv"><span>${t.party}</span><b class="${t.dir === 'in' ? 'amt-in' : 'amt-out'}">${t.dir === 'in' ? '+' : '−'}${money(t.amount)}</b></div>
+  `).join('') || '<div class="empty">Nothing yet</div>';
+}
+
+function usedToday(c) {
+  return state.txns.filter(t => t.acct === c.account && t.dir === 'out' && t.date.slice(0, 10) === todayKey()).reduce((a, b) => a + b.amount, 0);
+}
+
+function renderTransfer() {
+  const sel = $('#trBank');
+523:  const txn = { serial: 'SN' + (state.counters.serial++), id: 'TXN-' + uid('').slice(0, 10), type: 'WALLET', dir, amount: amt, party: 'WALLET ENGINE / ' + asset, channel: 'INTERNAL', status: 'SUCCESS', acct: c.account, note: op };
+568:  const txn = { serial: 'SN' + (state.counters.serial++), id: 'TXN-' + uid('').slice(0, 10), type: 'FX', dir: 'out', amount: amt, party: `FX ENGINE ${f}→${t}`, channel: 'INTERNAL', status: 'SUCCESS', acct: c.account, note: `Converted to ${out.toFixed(2)} ${t}` };
+619:    const txn = { serial: 'SN' + (state.counters.serial++), id: 'TXN-' + uid('').slice(0, 10), type: 'ATM', dir: 'out', amount: a, party: 'GPB ATM / CASH DISPENSE', channel: 'ATM', status: 'SUCCESS', acct: c.account, note: 'Cash withdrawal' };
+679:  const txn = { serial: 'SN' + (state.counters.serial++), id: 'TXN-' + uid('').slice(0, 10), type: 'TRADING', dir: 'in', amount: p * RATES.USD.r, party: 'TRADING PROFIT LEDGER', channel: 'INTERNAL', status: 'SUCCESS', acct: c.account, note: 'Profit sweep to main balance' };
+716:  const txn = { serial: 'SN' + (state.counters.serial++), id: 'TXN-' + uid('').slice(0, 10), type: 'MINING', dir: 'in', amount: b * RATES.USD.r, party: 'MINING POOL PAYOUT', channel: 'INTERNAL', status: 'SUCCESS', acct: c.account, note: 'Mining reward sweep' };
+827:  const txn = { serial: 'SN' + (state.counters.serial++), id: 'TXN-' + uid('').slice(0, 10), type: 'ADJUSTMENT', dir: op === 'credit' ? 'in' : 'out', amount: amt, party: 'ADMIN ADJUSTMENT', channel: 'BACKOFFICE', status: 'SUCCESS', acct: c.account, note: reason };

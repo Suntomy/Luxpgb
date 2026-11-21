@@ -1,0 +1,32 @@
+=== BROWSER STATE ===
+URL: http://localhost:8092/?v=2
+Title: Global Pilgrim Bank — Digital Banking Platform (Demo)
+Result: JS result: {"bal":2384975,"usd":12564.448051948051,"txs":8,"alerts":3,"audit":5}
+
+Interactive elements (19):
+  [5] button "◈ Overview"
+  [6] button "⇄ Transfer"
+  [7] button "≡ Transactions"
+  [8] button "◎ Wallets & Crypto"
+  [9] button "₦ Currency Exchange"
+  [10] button "▭ Cards & ATM"
+  [11] button "# USSD & Alerts"
+  [12] button "▲ Trading Terminal"
+  [13] button "⛏ Mining Terminal"
+  [14] button "▤ Statements"
+  [15] button "⚙ Security"
+  [16] button "★ Admin Dashboard"
+  [17] button "⚖ General Ledger"
+  [18] button "⧉ Audit Trail"
+  [19] button "⏻ Sign out"
+  [40] select "🇳🇬 Nigerian Naira (NGN)🇺🇸 US Dollar (USD)🇪🇺 Euro (EUR)"
+  [41] select "🇳🇬 Nigerian Naira (NGN)🇺🇸 US Dollar (USD)🇪🇺 Euro (EUR)"
+  [42] input type="number"
+  [43] button "Convert"
+
+Accessibility tree:
+Page text: GPB Global Pilgrim BANK BANKING ◈ Overview ⇄ Transfer ≡ Transactions ◎ Wallets & Crypto ₦ Currency Exchange CHANNELS ▭ Cards & ATM # USSD & Alerts MARKETS ▲ Trading Terminal ⛏ Mining Terminal ACCOUNT ▤ Statements ⚙ Security BACK OFFICE ★ Admin Dashboard ⚖ General Ledger ⧉ Audit Trail ⏻ Sign out Currency Exchange Live FX conversion across 12 currencies LIVE FEED 22:58:27 OA CURRENCY EXCHANGE FROM 🇳🇬 Nigerian Naira (NGN) 🇺🇸 US Dollar (USD) 🇪🇺 Euro (EUR) 🇬🇧 Pound Sterling (GBP) 🇨🇳 Chinese Yuan (CNY) 🇷🇺 Russian Ruble (RUB) 🇨🇦 Canadian Dollar (CAD) 🇺🇦 Ukrainian Hryvnia (UAH) 🇦🇺 Australian Dollar (AUD) 🇨🇲 Central African CFA (XAF) 🇿🇦 South African Rand (ZAR) 🇬🇭 Ghanaian Cedi (GHS) TO 🇳🇬 Nigerian Naira (NGN) 🇺🇸 US Dollar (USD) 🇪🇺 Euro (EUR) 🇬🇧 Pound Sterling (GBP) 🇨🇳 Chinese Yuan (CNY) 🇷🇺 Russian Ruble (RUB) 🇨🇦 Canadian Dollar (CAD) 🇺🇦 Ukrainian Hryvnia (UAH) 🇦🇺 Australian Dollar (AUD) 🇨🇲 Central African CFA (XAF) 🇿🇦 South African Rand (ZAR) 🇬🇭 Ghanaian Cedi (GHS) AMOUNT Rate 1 NGN = 0.000649 USD Spread (0.75%) 750.00 NGN You receive $64.45 Convert LIVE RATES (BASE: NGN) CURRENCY CODE BUY SELL 🇺🇸 US Dollar USD 1551.55 1528.45 🇪🇺 Euro EUR 1680.51 1655.49 🇬🇧 Pound Sterling GBP 1969.66 1940.34 🇨🇳 Chinese Yuan CNY 214.60 211.40 🇷🇺 Russian Ruble RUB 17.33 17.07 🇨🇦 Canadian Dollar CAD 1136.46 1119.54 🇺🇦 Ukrainian Hryvnia UAH 37.68 37.12 🇦🇺 Australian Dollar AUD 1019.59 1004.41 🇨🇲 Central African CFA XAF 2.56 2.52 🇿🇦 South African Rand ZAR 85.13 83.87 🇬🇭 Ghanaian Cedi GHS 104.78 103.22
+
+Screenshot: /workspace/.screenshots/step_029.png
+Use see-image to view: /workspace/.screenshots/step_029.png
+=== END ===

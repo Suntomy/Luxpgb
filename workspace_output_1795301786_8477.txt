@@ -1,0 +1,2 @@
+root:000 idx:000 js:000 css:000
+cat: /tmp/srv2.log: No such file or directory

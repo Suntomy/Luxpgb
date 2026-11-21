@@ -1,0 +1,35 @@
+=== BROWSER STATE ===
+URL: http://localhost:8092/
+Title: Global Pilgrim Bank — Digital Banking Platform (Demo)
+Result: Clicked: [6]
+
+Interactive elements (21):
+  [5] button "◈ Overview"
+  [6] button "⇄ Transfer"
+  [7] button "≡ Transactions"
+  [8] button "◎ Wallets & Crypto"
+  [9] button "₦ Currency Exchange"
+  [10] button "▭ Cards & ATM"
+  [11] button "# USSD & Alerts"
+  [12] button "▲ Trading Terminal"
+  [13] button "⛏ Mining Terminal"
+  [14] button "▤ Statements"
+  [15] button "⚙ Security"
+  [19] button "⏻ Sign out"
+  [25] select "Bank Account (Interbank)
+                GPB Wallet"
+  [26] select "Global Pilgrim Bank (920)Access Bank (044)GTBank (058)First"
+  [27] input type="text"
+  [28] input type="text"
+  [29] input type="number"
+  [30] input type="text"
+  [31] button "Continue →"
+  [32] button "Use"
+  [33] button "Use"
+
+Accessibility tree:
+Page text: GPB Global Pilgrim BANK BANKING ◈ Overview ⇄ Transfer ≡ Transactions ◎ Wallets & Crypto ₦ Currency Exchange CHANNELS ▭ Cards & ATM # USSD & Alerts MARKETS ▲ Trading Terminal ⛏ Mining Terminal ACCOUNT ▤ Statements ⚙ Security BACK OFFICE ⏻ Sign out Transfer Send money to any bank, wallet or crypto address LIVE FEED 22:56:59 OA NEW TRANSFER DESTINATION Bank Account (Interbank) GPB Wallet Crypto Wallet Address DESTINATION BANK Global Pilgrim Bank (920) Access Bank (044) GTBank (058) First Bank (011) UBA (033) Zenith Bank (057) Fidelity Bank (070) Wema Bank (035) FCMB (214) Sterling Bank (232) Polaris Bank (076) Stanbic IBTC (221) Moniepoint MFB (100) OPay Digital (999) PalmPay (998) Kuda MFB (505) ACCOUNT NUMBER RESOLVED ACCOUNT NAME AMOUNT (NGN) NARRATION Continue → Fee: ₦10 (<₦5,000) · ₦25 (<₦50,000) · ₦50 (above). Name enquiry is simulated in this demo. SAVED BENEFICIARIES EMEKA NWOSU · GTBank · 0123456789 Use NGOZI EZE · Access Bank · 0987654321 Use TRANSFER LIMITS Per transaction ₦5,000,000.00 Daily limit ₦20,000,000.00 Used today ₦0.00 Channel NIP / Instant INTERBANK ROUTING Institution Global Pilgrim Bank Bank code 920 NIP status READY TO RECEIVE SWIFT/BIC GPBBNGLA
+
+Screenshot: /workspace/.screenshots/step_002.png
+Use see-image to view: /workspace/.screenshots/step_002.png
+=== END ===

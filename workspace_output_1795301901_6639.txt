@@ -1,0 +1,20 @@
+=== BROWSER STATE ===
+URL: http://localhost:8092/?v=2
+Title: Global Pilgrim Bank — Digital Banking Platform (Demo)
+Result: Text from #page-exchange: CURRENCY EXCHANGE
+FROM
+🇳🇬 Nigerian Naira (NGN)
+🇺🇸 US Dollar (USD)
+🇪🇺 Euro (EUR)
+🇬🇧 Pound Sterling (GBP)
+🇨🇳 Chinese Yuan (CNY)
+🇷🇺 Russian Ruble (RUB)
+🇨🇦 Canadian Dollar (CAD)
+🇺🇦 Ukrainian Hryvnia (UAH)
+🇦🇺 Australian Dollar (AUD)
+🇨🇲 Central African CFA (XAF)
+🇿🇦 South African Rand (ZAR)
+🇬🇭 Ghanaian Cedi (GHS)
+TO
+🇳🇬 Nigerian Naira (NGN)
+🇺🇸 US Dollar (USD)
