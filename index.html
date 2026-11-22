@@ -1,0 +1,580 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Global Pilgrim Bank — Digital Banking Platform (Demo)</title>
+<meta name="description" content="Global Pilgrim Bank digital banking platform demonstration environment.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+<script src="https://sites.super.myninja.ai/_assets/ninja-daytona-script.js"></script>
+</head>
+<body>
+
+<!-- ============ LOGIN ============ -->
+<div id="loginView">
+  <div class="login-brand">
+    <div class="brandmark">
+      <div class="logo">GPB</div>
+      <div>
+        <h1>Global Pilgrim Bank</h1>
+        <span>Digital Banking Platform</span>
+      </div>
+    </div>
+
+    <div class="login-hero">
+      <h2>One account.<br>Every <em>rail</em>.<br>All currencies.</h2>
+      <p>Core banking, instant transfers, cards, USSD, multi-currency FX, digital wallets and crypto settlement — unified in a single ledger with full double-entry accounting and an immutable audit trail.</p>
+      <div class="hero-stats">
+        <div><b>12</b><span>Currencies</span></div>
+        <div><b>ISO 8583</b><span>ATM / POS</span></div>
+        <div><b>Double-Entry</b><span>Ledger</span></div>
+        <div><b>24/7</b><span>Monitoring</span></div>
+      </div>
+      <div class="demo-banner">⚠️ Demonstration environment — simulated data, no real funds move.</div>
+    </div>
+
+    <div style="font-size:11.5px;color:#5b6c8a">© 2024 Global Pilgrim Bank · Demo build · Not a licensed deposit-taking institution</div>
+  </div>
+
+  <div class="login-panel">
+    <div class="login-card">
+      <h3>Sign in</h3>
+      <p>Access your dashboard, wallets and transaction terminal.</p>
+
+      <div class="tabs">
+        <button class="active" data-mode="customer">Customer</button>
+        <button data-mode="admin">Administrator</button>
+      </div>
+
+      <form id="loginForm" autocomplete="off">
+        <div class="field" id="acctField">
+          <label>Account Number</label>
+          <input type="text" id="loginAcct" inputmode="numeric" maxlength="10" placeholder="10-digit account number" value="3855158987">
+        </div>
+        <div class="field">
+          <label id="pwLabel">Password</label>
+          <input type="password" id="loginPw" placeholder="Enter password" value="GPB2024">
+        </div>
+        <button class="btn btn-primary btn-block" type="submit" id="loginBtn">Sign in securely</button>
+        <div class="err" id="loginErr"></div>
+      </form>
+
+      <div class="hint" id="loginHint">
+        Demo credentials — Customer: <code>3855158987</code> / <code>GPB2024</code><br>
+        Administrator: <code>admin</code> / <code>admin123</code>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ============ APP ============ -->
+<div id="appView">
+  <aside class="sidebar" id="sidebar">
+    <div class="side-brand">
+      <div class="logo">GPB</div>
+      <div><b>Global Pilgrim</b><span>Bank</span></div>
+    </div>
+
+    <div class="nav-label">Banking</div>
+    <button class="nav-item active" data-page="overview"><span class="ic">◈</span> Overview</button>
+    <button class="nav-item" data-page="transfer"><span class="ic">⇄</span> Transfer</button>
+    <button class="nav-item" data-page="transactions"><span class="ic">≡</span> Transactions</button>
+    <button class="nav-item" data-page="wallets"><span class="ic">◎</span> Wallets &amp; Crypto</button>
+    <button class="nav-item" data-page="exchange"><span class="ic">₦</span> Currency Exchange</button>
+
+    <div class="nav-label">Channels</div>
+    <button class="nav-item" data-page="cards"><span class="ic">▭</span> Cards &amp; ATM</button>
+    <button class="nav-item" data-page="ussd"><span class="ic">#</span> USSD &amp; Alerts</button>
+
+    <div class="nav-label">Markets</div>
+    <button class="nav-item" data-page="trading"><span class="ic">▲</span> Trading Terminal</button>
+    <button class="nav-item" data-page="mining"><span class="ic">⛏</span> Mining Terminal</button>
+
+    <div class="nav-label">Account</div>
+    <button class="nav-item" data-page="statements"><span class="ic">▤</span> Statements</button>
+    <button class="nav-item" data-page="settings"><span class="ic">⚙</span> Security</button>
+
+    <div class="nav-label admin-only">Back Office</div>
+    <button class="nav-item admin-only" data-page="admin"><span class="ic">★</span> Admin Dashboard</button>
+    <button class="nav-item admin-only" data-page="ledger"><span class="ic">⚖</span> General Ledger</button>
+    <button class="nav-item admin-only" data-page="audit"><span class="ic">⧉</span> Audit Trail</button>
+
+    <div class="side-foot">
+      <button class="nav-item" id="logoutBtn"><span class="ic">⏻</span> Sign out</button>
+    </div>
+  </aside>
+
+  <div class="main">
+    <div class="topbar">
+      <button class="btn btn-sm no-print" id="menuBtn" style="display:none">☰</button>
+      <div>
+        <h2 id="pageTitle">Overview</h2>
+        <div class="sub" id="pageSub">Your banking at a glance</div>
+      </div>
+      <div class="topbar-right">
+        <span class="pill live" id="netPill">LIVE FEED</span>
+        <span class="pill" id="clockPill">--:--:--</span>
+        <div class="avatar" id="avatar">OA</div>
+      </div>
+    </div>
+
+    <div class="content">
+
+      <!-- OVERVIEW -->
+      <section class="page active" id="page-overview">
+        <div class="grid g2" style="margin-bottom:16px">
+          <div class="card balance-card">
+            <div class="bal-label">Available Balance</div>
+            <div class="bal-amount" id="ovBalance">₦0.00</div>
+            <div class="bal-sub" id="ovAcctName">—</div>
+            <div class="acct-line">
+              <div><span>Account Number</span><b class="mono" id="ovAcctNo">—</b></div>
+              <div><span>Bank</span><b>Global Pilgrim Bank</b></div>
+              <div><span>Type</span><b id="ovAcctType">—</b></div>
+              <div><span>Status</span><b id="ovStatus">—</b></div>
+            </div>
+          </div>
+          <div class="grid" style="grid-template-columns:1fr 1fr;gap:16px">
+            <div class="card stat"><h4>Money In (30d)</h4><b class="up" id="ovIn">₦0</b><small>Credits received</small></div>
+            <div class="card stat"><h4>Money Out (30d)</h4><b class="down" id="ovOut">₦0</b><small>Debits sent</small></div>
+            <div class="card stat"><h4>Transactions</h4><b id="ovCount">0</b><small>All-time records</small></div>
+            <div class="card stat"><h4>Daily Limit Left</h4><b id="ovLimit">₦0</b><small>Resets 00:00 WAT</small></div>
+          </div>
+        </div>
+
+        <div class="grid g2">
+          <div class="card">
+            <div class="between" style="margin-bottom:14px">
+              <h4 style="margin:0">Live Transaction Feed</h4>
+              <span class="pill live">streaming</span>
+            </div>
+            <div class="feed" id="liveFeed"></div>
+          </div>
+          <div class="card">
+            <h4>Quick Actions</h4>
+            <div class="grid" style="grid-template-columns:1fr 1fr;gap:10px">
+              <button class="btn" data-goto="transfer">⇄ Send Money</button>
+              <button class="btn" data-goto="wallets">◎ Wallets</button>
+              <button class="btn" data-goto="exchange">₦ Exchange</button>
+              <button class="btn" data-goto="statements">▤ Statement</button>
+            </div>
+            <div class="divider"></div>
+            <h4>Recent Activity</h4>
+            <div id="ovRecent"></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- TRANSFER -->
+      <section class="page" id="page-transfer">
+        <div class="grid g2">
+          <div class="card">
+            <h4>New Transfer</h4>
+            <div class="field">
+              <label>Destination</label>
+              <select id="trDest">
+                <option value="bank">Bank Account (Interbank)</option>
+                <option value="wallet">GPB Wallet</option>
+                <option value="crypto">Crypto Wallet Address</option>
+              </select>
+            </div>
+            <div class="field" id="bankField">
+              <label>Destination Bank</label>
+              <select id="trBank"></select>
+            </div>
+            <div class="field">
+              <label id="trAcctLabel">Account Number</label>
+              <input type="text" id="trAcct" inputmode="numeric" maxlength="34" placeholder="Enter 10-digit account number">
+            </div>
+            <div class="field">
+              <label>Resolved Account Name</label>
+              <input type="text" id="trName" readonly placeholder="Name enquiry runs automatically" style="color:var(--green)">
+            </div>
+            <div class="field">
+              <label>Amount (NGN)</label>
+              <input type="number" id="trAmount" placeholder="0.00" min="1" step="0.01">
+            </div>
+            <div class="field">
+              <label>Narration</label>
+              <input type="text" id="trNote" placeholder="What is this for?" maxlength="60">
+            </div>
+            <button class="btn btn-primary btn-block" id="trSend">Continue →</button>
+            <div class="hint">Fee: ₦10 (&lt;₦5,000) · ₦25 (&lt;₦50,000) · ₦50 (above). Name enquiry is simulated in this demo.</div>
+          </div>
+
+          <div class="card">
+            <h4>Saved Beneficiaries</h4>
+            <div id="beneficiaries"></div>
+            <div class="divider"></div>
+            <h4>Transfer Limits</h4>
+            <div class="kv"><span>Per transaction</span><b>₦5,000,000.00</b></div>
+            <div class="kv"><span>Daily limit</span><b>₦20,000,000.00</b></div>
+            <div class="kv"><span>Used today</span><b id="trUsedToday">₦0.00</b></div>
+            <div class="kv"><span>Channel</span><b>NIP / Instant</b></div>
+            <div class="divider"></div>
+            <h4>Interbank Routing</h4>
+            <div class="kv"><span>Institution</span><b>Global Pilgrim Bank</b></div>
+            <div class="kv"><span>Bank code</span><b class="mono">920</b></div>
+            <div class="kv"><span>NIP status</span><b class="up">READY TO RECEIVE</b></div>
+            <div class="kv"><span>SWIFT/BIC</span><b class="mono">GPBBNGLA</b></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- TRANSACTIONS -->
+      <section class="page" id="page-transactions">
+        <div class="card">
+          <div class="between" style="margin-bottom:16px">
+            <h4 style="margin:0">Transaction Register</h4>
+            <div class="row">
+              <input type="text" id="txSearch" placeholder="Search ID, name, reference…" style="background:var(--bg2);border:1px solid var(--line);border-radius:9px;padding:9px 13px;font-size:13px;width:250px">
+              <select id="txFilter" style="background:var(--bg2);border:1px solid var(--line);border-radius:9px;padding:9px 13px;font-size:13px">
+                <option value="">All statuses</option>
+                <option value="SUCCESS">Success</option>
+                <option value="PENDING">Pending</option>
+                <option value="FAILED">Failed</option>
+              </select>
+            </div>
+          </div>
+          <div style="overflow-x:auto">
+            <table>
+              <thead><tr>
+                <th>Serial</th><th>Transaction ID</th><th>Type</th><th>Counterparty</th>
+                <th>Amount</th><th>Channel</th><th>Status</th><th>Date &amp; Time</th>
+              </tr></thead>
+              <tbody id="txBody"></tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <!-- WALLETS -->
+      <section class="page" id="page-wallets">
+        <div class="grid g3" id="walletGrid" style="margin-bottom:16px"></div>
+        <div class="grid g2">
+          <div class="card">
+            <h4>Crypto Wallet Addresses</h4>
+            <div id="cryptoList"></div>
+          </div>
+          <div class="card">
+            <h4>Wallet Operations</h4>
+            <div class="field"><label>Operation</label>
+              <select id="wOp">
+                <option value="bank2wallet">Bank → Wallet</option>
+                <option value="wallet2bank">Wallet → Bank</option>
+                <option value="crypto2fiat">Crypto → Fiat</option>
+                <option value="fiat2crypto">Fiat → Crypto</option>
+              </select>
+            </div>
+            <div class="field"><label>Asset / Currency</label><select id="wAsset"></select></div>
+            <div class="field"><label>Amount</label><input type="number" id="wAmount" placeholder="0.00" min="0.01" step="0.01"></div>
+            <button class="btn btn-blue btn-block" id="wGo">Execute</button>
+            <div class="hint">HD wallet derivation, key encryption and cold/hot segregation are simulated here. In production these run in an HSM with multi-signature approval.</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- EXCHANGE -->
+      <section class="page" id="page-exchange">
+        <div class="grid g2">
+          <div class="card">
+            <h4>Currency Exchange</h4>
+            <div class="field"><label>From</label><select id="exFrom"></select></div>
+            <div class="field"><label>To</label><select id="exTo"></select></div>
+            <div class="field"><label>Amount</label><input type="number" id="exAmount" placeholder="0.00" step="0.01" min="0"></div>
+            <div class="card" style="background:var(--bg2);box-shadow:none;padding:14px;margin-bottom:16px">
+              <div class="kv"><span>Rate</span><b id="exRate">—</b></div>
+              <div class="kv"><span>Spread (0.75%)</span><b id="exSpread">—</b></div>
+              <div class="kv"><span>You receive</span><b id="exOut" class="up">—</b></div>
+            </div>
+            <button class="btn btn-primary btn-block" id="exGo">Convert</button>
+          </div>
+          <div class="card">
+            <h4>Live Rates (base: NGN)</h4>
+            <table><thead><tr><th>Currency</th><th>Code</th><th>Buy</th><th>Sell</th></tr></thead><tbody id="rateBody"></tbody></table>
+          </div>
+        </div>
+      </section>
+
+      <!-- CARDS -->
+      <section class="page" id="page-cards">
+        <div class="grid g2" style="margin-bottom:16px">
+          <div class="card" style="background:linear-gradient(135deg,#1b2b4d,#0d1526);border-color:#2b4066">
+            <div class="between"><h4 style="margin:0">Virtual Card</h4><span class="tag ok">ACTIVE</span></div>
+            <div style="margin:18px 0">
+              <div class="mono" style="font-size:19px;letter-spacing:3px">5399 •••• •••• 4821</div>
+              <div class="row" style="margin-top:14px;gap:26px">
+                <div><div class="bal-label" style="font-size:9.5px">Card Holder</div><b style="font-size:13px" id="cardHolder">—</b></div>
+                <div><div class="bal-label" style="font-size:9.5px">Expires</div><b style="font-size:13px">09/28</b></div>
+                <div><div class="bal-label" style="font-size:9.5px">Network</div><b style="font-size:13px">VISA</b></div>
+              </div>
+            </div>
+            <div class="row"><button class="btn btn-sm" id="cardFreeze">Freeze</button><button class="btn btn-sm" id="cardPin">Change PIN</button><button class="btn btn-sm" id="cardLimit">Set Limit</button></div>
+          </div>
+          <div class="card">
+            <h4>Card Controls</h4>
+            <div class="kv"><span>Status</span><b id="cardStatus">ACTIVE</b></div>
+            <div class="kv"><span>Spending limit (daily)</span><b>₦500,000.00</b></div>
+            <div class="kv"><span>Contactless</span><b class="up">Enabled</b></div>
+            <div class="kv"><span>3-D Secure</span><b class="up">Enabled</b></div>
+            <div class="kv"><span>International use</span><b class="up">Enabled</b></div>
+            <div class="kv"><span>Fraud engine</span><b class="up">Monitoring</b></div>
+            <div class="divider"></div>
+            <h4>ATM Operations</h4>
+            <div class="row">
+              <button class="btn btn-sm" data-atm="balance">Balance Enquiry</button>
+              <button class="btn btn-sm" data-atm="mini">Mini Statement</button>
+              <button class="btn btn-sm" data-atm="withdraw">Withdraw</button>
+              <button class="btn btn-sm" data-atm="pin">PIN Change</button>
+            </div>
+            <div class="hint">ATM messages are modelled on ISO 8583 (0200/0210 authorisation requests). Simulation only.</div>
+          </div>
+        </div>
+        <div class="card">
+          <h4>Card Transaction History</h4>
+          <table><thead><tr><th>Merchant</th><th>Amount</th><th>Channel</th><th>Status</th><th>Date</th></tr></thead><tbody id="cardTxBody"></tbody></table>
+        </div>
+      </section>
+
+      <!-- USSD -->
+      <section class="page" id="page-ussd">
+        <div class="grid g2">
+          <div class="card">
+            <h4>USSD Banking</h4>
+            <p style="font-size:13px;color:var(--muted);line-height:1.7;margin-bottom:16px">Dial <b class="mono" style="color:var(--gold)">*920*1#</b> from your registered phone number to transact without data. Sessions are authenticated against your device fingerprint and transaction PIN.</p>
+            <div class="kv"><span>Shortcode</span><b class="mono">*920*1#</b></div>
+            <div class="kv"><span>Registered MSISDN</span><b class="mono" id="ussdPhone">—</b></div>
+            <div class="kv"><span>Session timeout</span><b>180 seconds</b></div>
+            <div class="kv"><span>Gateway status</span><b class="up">CONNECTED</b></div>
+            <div class="divider"></div>
+            <h4>Menu Preview</h4>
+            <div class="card mono" style="background:#04170d;border-color:#0d3a24;color:#7dffb0;font-size:12.5px;line-height:1.9;box-shadow:none">
+              Global Pilgrim Bank<br>
+              1. Balance Enquiry<br>
+              2. Transfer to Bank<br>
+              3. Airtime &amp; Bills<br>
+              4. Change PIN<br>
+              0. Exit
+            </div>
+          </div>
+          <div class="card">
+            <h4>Alerts &amp; Notifications</h4>
+            <div class="row" style="margin-bottom:14px">
+              <span class="chip">📱 SMS: enabled</span>
+              <span class="chip">✉️ Email: enabled</span>
+              <span class="chip">🔔 Push: enabled</span>
+            </div>
+            <div id="alertList" style="display:flex;flex-direction:column;gap:10px;max-height:460px;overflow-y:auto"></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- TRADING -->
+      <section class="page" id="page-trading">
+        <div class="grid g3" style="margin-bottom:16px">
+          <div class="card stat"><h4>Trading Balance</h4><b id="tradeBal">$0.00</b><small>Capital allocated to strategy</small></div>
+          <div class="card stat"><h4>Profit Ledger</h4><b class="up" id="profitBal">$0.00</b><small>Withdrawable profits</small></div>
+          <div class="card stat"><h4>Bot Status</h4><b id="botStatus" class="up">RUNNING</b><small id="botUptime">Uptime 00:00:00</small></div>
+        </div>
+        <div class="grid g2">
+          <div class="card">
+            <div class="between" style="margin-bottom:14px"><h4 style="margin:0">Live Market Terminal</h4><span class="pill live">MT5 bridge · demo</span></div>
+            <table><thead><tr><th>Instrument</th><th>Bid</th><th>Ask</th><th>Change</th><th>Signal</th></tr></thead><tbody id="marketBody"></tbody></table>
+            <div class="hint">Prices are simulated ticks. A real deployment requires a licensed broker bridge and MT5 terminal session.</div>
+          </div>
+          <div class="card">
+            <h4>Strategy Controls</h4>
+            <div class="kv"><span>Strategy</span><b>Momentum / Mean-Reversion</b></div>
+            <div class="kv"><span>Scan interval</span><b>5 seconds</b></div>
+            <div class="kv"><span>Risk per trade</span><b>0.5%</b></div>
+            <div class="kv"><span>Stop-loss</span><b>Auto</b></div>
+            <div class="kv"><span>Profit routing</span><b class="up">→ Profit Ledger</b></div>
+            <div class="divider"></div>
+            <div class="row">
+              <button class="btn btn-green btn-sm" id="botStart">Start Bot</button>
+              <button class="btn btn-red btn-sm" id="botStop">Stop Bot</button>
+              <button class="btn btn-sm" id="profitSweep">Sweep Profit → Main</button>
+            </div>
+            <div class="divider"></div>
+            <h4>Trade Log</h4>
+            <div class="feed" id="tradeLog" style="max-height:240px"></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- MINING -->
+      <section class="page" id="page-mining">
+        <div class="grid g4" style="margin-bottom:16px">
+          <div class="card stat"><h4>Mining Balance</h4><b id="mineBal">$0.00</b><small>Accrued rewards</small></div>
+          <div class="card stat"><h4>Hash Rate</h4><b id="hashRate">0 H/s</b><small>Aggregate workers</small></div>
+          <div class="card stat"><h4>Workers</h4><b id="workerCount">0</b><small>Active rigs</small></div>
+          <div class="card stat"><h4>Pool Status</h4><b class="up">CONNECTED</b><small>Latency 24ms</small></div>
+        </div>
+        <div class="grid g2">
+          <div class="card">
+            <h4>Mining Workers</h4>
+            <table><thead><tr><th>Worker</th><th>Algorithm</th><th>Hash Rate</th><th>Status</th></tr></thead><tbody id="minerBody"></tbody></table>
+            <div class="hint">Rewards accrue to the mining balance with double-entry postings and can be swept to your main balance. Real mining requires physical ASIC/GPU hardware or hosted hashrate contracts.</div>
+          </div>
+          <div class="card">
+            <h4>Reward Payouts</h4>
+            <div class="feed" id="mineLog" style="max-height:300px"></div>
+            <div class="divider"></div>
+            <button class="btn btn-blue btn-block" id="mineSweep">Sweep Mining Balance → Main</button>
+          </div>
+        </div>
+      </section>
+
+      <!-- STATEMENTS -->
+      <section class="page" id="page-statements">
+        <div class="card" style="margin-bottom:16px">
+          <div class="between">
+            <div>
+              <h4 style="margin:0">Account Statement</h4>
+              <div class="sub" style="margin-top:4px">Generate a printable statement for any period</div>
+            </div>
+            <div class="row no-print">
+              <select id="stPeriod" style="background:var(--bg2);border:1px solid var(--line);border-radius:9px;padding:9px 13px;font-size:13px">
+                <option value="30">Last 30 days</option>
+                <option value="90">Last 90 days</option>
+                <option value="365">Last 12 months</option>
+                <option value="0">All time</option>
+              </select>
+              <button class="btn btn-primary btn-sm" id="stPrint">🖨 Print / Save PDF</button>
+            </div>
+          </div>
+        </div>
+        <div class="card">
+          <div class="between" style="margin-bottom:18px">
+            <div>
+              <div style="font-size:17px;font-weight:700">Global Pilgrim Bank</div>
+              <div class="sub" id="stAcctLine">—</div>
+            </div>
+            <div style="text-align:right">
+              <div class="sub">Statement generated</div>
+              <div style="font-size:13px" id="stGenDate">—</div>
+            </div>
+          </div>
+          <table><thead><tr><th>Date</th><th>Description</th><th>Reference</th><th>Debit</th><th>Credit</th><th>Balance</th></tr></thead><tbody id="stBody"></tbody></table>
+        </div>
+      </section>
+
+      <!-- SETTINGS -->
+      <section class="page" id="page-settings">
+        <div class="grid g2">
+          <div class="card">
+            <h4>Security</h4>
+            <div class="kv"><span>Transaction PIN</span><b>••••</b></div>
+            <div class="kv"><span>Two-factor auth</span><b class="up">Enabled (SMS OTP)</b></div>
+            <div class="kv"><span>Device binding</span><b class="up">Active</b></div>
+            <div class="kv"><span>Session timeout</span><b>15 minutes</b></div>
+            <div class="kv"><span>IP allow-list</span><b>Disabled</b></div>
+            <div class="divider"></div>
+            <div class="row">
+              <button class="btn btn-sm" id="setPin">Change Transaction PIN</button>
+              <button class="btn btn-sm" id="set2fa">Toggle 2FA</button>
+            </div>
+          </div>
+          <div class="card">
+            <h4>Profile &amp; KYC</h4>
+            <div class="kv"><span>Account name</span><b id="setName">—</b></div>
+            <div class="kv"><span>BVN</span><b class="mono" id="setBvn">—</b></div>
+            <div class="kv"><span>Phone</span><b class="mono" id="setPhone">—</b></div>
+            <div class="kv"><span>Email</span><b id="setEmail">—</b></div>
+            <div class="kv"><span>KYC tier</span><b id="setKyc">—</b></div>
+            <div class="kv"><span>Account status</span><b id="setStatus">—</b></div>
+            <div class="divider"></div>
+            <div class="hint">Identity data in this demo is fictional. Production KYC requires BVN/NIN verification through NIBSS or an accredited identity provider, with consent capture.</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ADMIN -->
+      <section class="page" id="page-admin">
+        <div class="grid g4" style="margin-bottom:16px">
+          <div class="card stat"><h4>Total Deposits</h4><b id="adDeposits">₦0</b><small>Customer liabilities</small></div>
+          <div class="card stat"><h4>Total Customers</h4><b id="adCustomers">0</b><small>Onboarded accounts</small></div>
+          <div class="card stat"><h4>Transactions Today</h4><b id="adTxToday">0</b><small>All channels</small></div>
+          <div class="card stat"><h4>Fee Income</h4><b class="up" id="adFees">₦0</b><small>Charges &amp; commissions</small></div>
+        </div>
+        <div class="card" style="margin-bottom:16px">
+          <div class="between" style="margin-bottom:14px">
+            <h4 style="margin:0">Customer Accounts</h4>
+            <button class="btn btn-primary btn-sm" id="adNewCust">+ Open New Account</button>
+          </div>
+          <div style="overflow-x:auto">
+            <table><thead><tr><th>Account</th><th>Name</th><th>Type</th><th>Balance</th><th>KYC</th><th>Status</th><th>Actions</th></tr></thead><tbody id="adCustBody"></tbody></table>
+          </div>
+        </div>
+        <div class="grid g2">
+          <div class="card">
+            <h4>Ledger Adjustment</h4>
+            <div class="field"><label>Account</label><select id="adjAcct"></select></div>
+            <div class="field"><label>Operation</label>
+              <select id="adjOp"><option value="credit">Credit (increase balance)</option><option value="debit">Debit (decrease balance)</option></select>
+            </div>
+            <div class="field"><label>Amount</label><input type="number" id="adjAmount" placeholder="0.00" step="0.01" min="0.01"></div>
+            <div class="field"><label>Reason (required for audit)</label><input type="text" id="adjReason" placeholder="e.g. manual settlement correction"></div>
+            <button class="btn btn-blue btn-block" id="adjGo">Post Adjustment</button>
+            <div class="hint">Every adjustment writes a double-entry pair (customer account ↔ adjustment suspense) plus an immutable audit record with operator ID and timestamp.</div>
+          </div>
+          <div class="card">
+            <h4>Bank Health</h4>
+            <div class="kv"><span>Liquidity ratio</span><b class="up">42.6%</b></div>
+            <div class="kv"><span>Reserve position</span><b>₦1.84B</b></div>
+            <div class="kv"><span>NIP availability</span><b class="up">99.98%</b></div>
+            <div class="kv"><span>Settlement queue</span><b>0 pending</b></div>
+            <div class="kv"><span>Failed txn rate</span><b class="up">0.04%</b></div>
+            <div class="kv"><span>Reconciliation</span><b class="up">Balanced</b></div>
+            <div class="divider"></div>
+            <h4>System Controls</h4>
+            <div class="row">
+              <button class="btn btn-sm" id="sysMaint">Maintenance Mode</button>
+              <button class="btn btn-sm" id="sysReport">Daily Report</button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- LEDGER -->
+      <section class="page" id="page-ledger">
+        <div class="grid g3" style="margin-bottom:16px">
+          <div class="card stat"><h4>Total Debits</h4><b id="lgDebit">₦0</b><small>Ledger control</small></div>
+          <div class="card stat"><h4>Total Credits</h4><b id="lgCredit">₦0</b><small>Ledger control</small></div>
+          <div class="card stat"><h4>Balance Check</h4><b id="lgBal" class="up">BALANCED</b><small>Debits = Credits</small></div>
+        </div>
+        <div class="card">
+          <h4>General Ledger Entries</h4>
+          <div style="overflow-x:auto">
+            <table><thead><tr><th>Entry ID</th><th>Transaction</th><th>Account</th><th>Debit</th><th>Credit</th><th>Posted</th></tr></thead><tbody id="ledgerBody"></tbody></table>
+          </div>
+        </div>
+      </section>
+
+      <!-- AUDIT -->
+      <section class="page" id="page-audit">
+        <div class="card">
+          <h4>Immutable Audit Trail</h4>
+          <div style="overflow-x:auto">
+            <table><thead><tr><th>#</th><th>Operator</th><th>Action</th><th>Detail</th><th>Timestamp</th></tr></thead><tbody id="auditBody"></tbody></table>
+          </div>
+        </div>
+      </section>
+
+    </div>
+  </div>
+</div>
+
+<div id="toasts"></div>
+
+<!-- MODAL -->
+<div class="modal-back" id="modalBack">
+  <div class="modal" id="modal"></div>
+</div>
+
+<script src="app.js"></script>
+</body>
+</html>
